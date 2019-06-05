@@ -1,0 +1,9 @@
+DROP TABLE Equipamentos;
+DROP TABLE TelefoneCliente;
+DROP TABLE Hospedagem;
+DROP TABLE Dependente;
+DROP TABLE Produto;
+DROP TABLE Quarto;
+DROP TABLE Funcionario;
+DROP TABLE Cliente;
+DROP TABLE Avaliacao;
