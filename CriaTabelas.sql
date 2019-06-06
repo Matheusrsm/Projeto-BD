@@ -33,8 +33,6 @@ CREATE TABLE Quarto (
     numero INT NOT NULL,
     tipo VARCHAR(50) NOT NULL,
     vista NUMBER NOT NULL,
-    tipoMantem VARCHAR(30),
-    observacao VARCHAR(30),
     PRIMARY KEY(numero)
 );
 
