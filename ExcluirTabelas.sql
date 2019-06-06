@@ -1,9 +1,12 @@
 DROP TABLE Equipamentos;
 DROP TABLE TelefoneCliente;
+DROP TABLE Reserva;
 DROP TABLE Hospedagem;
+DROP TABLE Manutencao;
 DROP TABLE Dependente;
+DROP TABLE Vendas;
+DROP TABLE Avaliacao;
 DROP TABLE Produto;
 DROP TABLE Quarto;
 DROP TABLE Funcionario;
 DROP TABLE Cliente;
-DROP TABLE Avaliacao;
