@@ -17,55 +17,55 @@ INSERT ALL
 SELECT  * FROM dual;
 
 INSERT ALL
-    INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('1A', 'mds', 'so quero pagar por media' ,8.66)
-    INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('1B', 'mds', 'so quero pagar por media' ,8.66)
-    INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('1C', 'mds', 'so quero pagar por media' ,8.66)
-    INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('1D', 'mds', 'so quero pagar por media' ,8.66)
-    INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('1E', 'mds', 'so quero pagar por media' ,8.66)
-    INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('1F', 'mds', 'so quero pagar por media' ,8.66)
-    INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('1G', 'mds', 'so quero pagar por media' ,8.66)
-    INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('1H', 'mds', 'so quero pagar por media' ,8.66)
+    INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('123-A', 'mds', 'so quero pagar por media' ,8.66)
+    INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('123-B', 'mds', 'so quero pagar por media' ,8.66)
+    INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('123-C', 'mds', 'so quero pagar por media' ,8.66)
+    INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('123-D', 'mds', 'so quero pagar por media' ,8.66)
+    INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('123-E', 'mds', 'so quero pagar por media' ,8.66)
+    INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('123-F', 'mds', 'so quero pagar por media' ,8.66)
+    INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('123-G', 'mds', 'so quero pagar por media' ,8.66)
+    INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('123-H', 'mds', 'so quero pagar por media' ,8.66)
 SELECT * FROM dual;
 
 INSERT ALL
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
-    1, '12345678901234', '1A', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
+    1, '12345678901234', '123-A', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
-    2, '12345678901235', '1A', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
+    2, '12345678901235', '123-A', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
-    3, '12345678901236', '1B', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'concerto')
+    3, '12345678901236', '123-B', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'concerto')
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
-    4, '12345678901234','1B', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
+    4, '12345678901234','123-B', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
-    5, '12345678901237', '1A', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'concerto')
+    5, '12345678901237', '123-A', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'concerto')
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
-    6, '12345678901238', '1C', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'concerto')
+    6, '12345678901238', '123-C', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'concerto')
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
-    7, '12345678901230', '1D', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
+    7, '12345678901230', '123-D', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
-    8, '12345678901234', '1E', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
+    8, '12345678901234', '123-E', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
-    9, '12345678901234', '1H', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
+    9, '12345678901234', '123-H', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
-    10, '12345678901234', '1G', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
+    10, '12345678901234', '123-G', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
-    11, '12345678901234', '1F', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
+    11, '12345678901234', '123-F', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
-    12, '12345678901235', '1A', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'concerto')
+    12, '12345678901235', '123-A', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'concerto')
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
-    13, '12345678901239', '1B', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
+    13, '12345678901239', '123-B', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
-    14, '12345678901239', '1C', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'concerto')
+    14, '12345678901239', '123-C', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'concerto')
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
-    15, '12345678901238', '1H', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'concerto')
+    15, '12345678901238', '123-H', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'concerto')
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
-    16, '12345678901236', '1F', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'concerto')
+    16, '12345678901236', '123-F', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'concerto')
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
-    17, '12345678901235', '1H', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
+    17, '12345678901235', '123-H', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza')
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
-    18, '12345678901239', '1G', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'concerto')
+    18, '12345678901239', '123-G', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'concerto')
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
-    19, '12345678901230', '1B', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza') 
+    19, '12345678901230', '123-B', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza') 
 SELECT * FROM dual;
 
 INSERT ALL
@@ -76,13 +76,13 @@ INSERT ALL
 Select * FROM dual;
 
 INSERT ALL
-    INTO RESERVA VALUES (1, '09876543210', '1A', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')) )
-    INTO RESERVA VALUES (2, '09876543219', '1B', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')) )
-    INTO RESERVA VALUES (3, '09876543218', '1C', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')) )
+    INTO RESERVA VALUES (1, '09876543210', '123-A', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')) )
+    INTO RESERVA VALUES (2, '09876543219', '123-B', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')) )
+    INTO RESERVA VALUES (3, '09876543218', '123-C', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')) )
 SELECT * FROM dual;
 
 INSERT ALL
-    --INTO HOSPEDA VALUES (1, (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210', '1A' )
-    INTO HOSPEDA VALUES (3, (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210', '1B' )
+    --INTO HOSPEDA VALUES (1, (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210', '123-A' )
+    INTO HOSPEDA VALUES (3, (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210', '123-B' )
 select * from dual;
 

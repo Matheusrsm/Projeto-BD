@@ -11,6 +11,12 @@ HAVING COUNT(*) >= all
       GROUP BY tipo_manutencao  
     );
 
+-- Query 13
+--Modifique a tabela QUARTO, adicionando uma restrição de integridade que valide se a coluna NUMERO está no formato “YYY-X”, onde X é qualquer caractere maiúsculo de A até Z e YYY são dígitos de 0 a 9.
+
+ALTER TABLE QUARTO ADD CONSTRAINT check_quarto 
+    CHECK (REGEXP_LIKE (numero, '^[0-9]{3}-[A-Z]$')); 
+
 -- Query 15
 -- Crie um trigger que não permita que um cliente se hospede sem reserva.
 
