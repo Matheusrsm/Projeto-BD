@@ -14,7 +14,7 @@ INSERT ALL
     '12345678901239','Spook', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')) ,100.00, 'trabalhar')
     INTO FUNCIONARIO (cpf, nome, data_nasc, salario, funcao) VALUES (
     '12345678901230','Brisa', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')) ,100.00, 'trabalhar') 
-SELECT  * FROM dual
+SELECT  * FROM dual;
 
 INSERT ALL
     INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('1A', 'mds', 'so quero pagar por media' ,8.66)
@@ -25,7 +25,7 @@ INSERT ALL
     INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('1F', 'mds', 'so quero pagar por media' ,8.66)
     INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('1G', 'mds', 'so quero pagar por media' ,8.66)
     INTO QUARTO (numero, tipo, vista, valor_diaria) VALUES ('1H', 'mds', 'so quero pagar por media' ,8.66)
-SELECT * FROM dual
+SELECT * FROM dual;
 
 INSERT ALL
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
@@ -66,4 +66,23 @@ INSERT ALL
     18, '12345678901239', '1G', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'concerto')
     INTO MANUTENCAO (id_manutencao, cpf_funcionario, numero_quarto, data, tipo_manutencao) VALUES (
     19, '12345678901230', '1B', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), 'limpeza') 
-SELECT * FROM dual 
+SELECT * FROM dual;
+
+INSERT ALL
+    INTO CLIENTE VALUES ('09876543210', 'Mia', 'ssssss@ssssss', 'endereco', 'F', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')) )
+    INTO CLIENTE VALUES ('09876543219', 'Ashlinn', 'ssssss@ssssss', 'endereco', 'F', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')) )
+    INTO CLIENTE VALUES ('09876543218', 'Sr.Simpatico', 'ssssss@ssssss', 'endereco', 'M', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')) )
+    INTO CLIENTE VALUES ('09876543217', 'Tric', 'ssssss@ssssss', 'endereco', 'M', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')) )
+Select * FROM dual;
+
+INSERT ALL
+    INTO RESERVA VALUES (1, '09876543210', '1A', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')) )
+    INTO RESERVA VALUES (2, '09876543219', '1B', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')) )
+    INTO RESERVA VALUES (3, '09876543218', '1C', (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')) )
+SELECT * FROM dual;
+
+INSERT ALL
+    --INTO HOSPEDA VALUES (1, (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210', '1A' )
+    INTO HOSPEDA VALUES (3, (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210', '1B' )
+select * from dual;
+
