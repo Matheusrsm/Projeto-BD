@@ -85,4 +85,20 @@ INSERT ALL
     --INTO HOSPEDA VALUES (1, (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210', '123-A' )
     INTO HOSPEDA VALUES (3, (TO_DATE('2003/05/03 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210', '123-B' )
 select * from dual;
+INSERT ALL    
+
+    INTO AVALIACAO (id, nota, data, cpf_cliente) VALUES (1, 10, (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210')
+    INTO AVALIACAO (id, nota, data, cpf_cliente) VALUES (2, 8, (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210')
+    INTO AVALIACAO (id, nota, data, cpf_cliente) VALUES (3, 6, (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210')
+    INTO AVALIACAO (id, nota, data, cpf_cliente) VALUES (4, 4, (TO_DATE('2003/05/08 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210')
+    INTO AVALIACAO (id, nota, data, cpf_cliente) VALUES (13, 2, (TO_DATE('2003/05/09 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210')
+    INTO AVALIACAO (id, nota, data, cpf_cliente) VALUES (14, 0, (TO_DATE('2003/05/09 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210')
+    INTO AVALIACAO (id, nota, data, cpf_cliente) VALUES (15, 1, (TO_DATE('2003/05/06 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210')
+    INTO AVALIACAO (id, nota, data, cpf_cliente) VALUES (8, 10, (TO_DATE('2003/05/06 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210')
+    INTO AVALIACAO (id, nota, data, cpf_cliente) VALUES (9, 10, (TO_DATE('2003/05/07 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210')
+    INTO AVALIACAO (id, nota, data, cpf_cliente) VALUES (10, 5, (TO_DATE('2003/05/07 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210')
+    INTO AVALIACAO (id, nota, data, cpf_cliente) VALUES (11, 8, (TO_DATE('2003/05/10 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210')
+    INTO AVALIACAO (id, nota, data, cpf_cliente) VALUES (12, 7, (TO_DATE('2003/05/01 21:02:44', 'yyyy/mm/dd hh24:mi:ss')), '09876543210')
+    
+select * from dual;
 

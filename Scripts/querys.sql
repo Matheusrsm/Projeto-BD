@@ -10,7 +10,7 @@ HAVING COUNT(*) >= all
       FROM MANUTENCAO
       GROUP BY tipo_manutencao  
     );
-
+    
 -- Query 13
 --Modifique a tabela QUARTO, adicionando uma restrição de integridade que valide se a coluna NUMERO está no formato “YYY-X”, onde X é qualquer caractere maiúsculo de A até Z e YYY são dígitos de 0 a 9.
 
@@ -39,4 +39,55 @@ BEGIN
     IF (v_cpf IS NULL) THEN
         RAISE_APPLICATION_ERROR (-20202,'Cliente não tem reserva para este quarto, logo, não poderá ser hospedar.');
     END IF;
-END verificaReserva; 
+END verificaReserva;  
+/
+-- Query 17
+-- Crie uma função chamada calculaMediaAvaliacoesByMes, que deve receber como parâmetro um determinado mês (no padrão: “JAN”, “FEV”, ...) 
+-- e retornar a média de todas as avaliações do hotel nesse mës. Coloque no script também o código de como executar a função
+
+CREATE OR REPLACE FUNCTION calculaMediaAvaliacoesByMes (mes IN VARCHAR) 
+RETURN NUMBER IS
+    media NUMBER;
+    mes_num VARCHAR(2);
+    BEGIN
+        
+        IF mes = 'JAN' THEN
+            mes_num := '01';
+        ELSIF mes = 'FEV' THEN 
+            mes_num := '02';
+        ELSIF mes = 'MAR' THEN
+            mes_num := '03';
+        ELSIF mes = 'ABR' THEN
+            mes_num := '04';
+        ELSIF mes = 'MAI' THEN
+            mes_num := '05';
+        ELSIF mes = 'JUN' THEN
+            mes_num := '06';
+        ELSIF mes = 'JUL' THEN
+            mes_num := '07';
+        ELSIF mes = 'AGO' THEN
+            mes_num := '08';
+        ELSIF mes = 'SET' THEN
+            mes_num := '09';
+        ELSIF mes = 'OTU' THEN
+            mes_num := '10';
+        ELSIF mes = 'NOV' THEN
+            mes_num := '11';
+        ELSE
+            mes_num := '12';
+        END IF;
+        
+        SELECT AVG(nota) INTO media
+        FROM Avaliacao
+        WHERE REGEXP_LIKE(data, ('^[0-9]{1,2}/' || mes_num));
+        
+        RETURN media;
+END calculaMediaAvaliacoesByMes;
+/
+SET serveroutput ON;
+DECLARE
+    m NUMBER;  
+BEGIN
+    m := calculaMediaAvaliacoesByMes('JUL');
+    dbms_output.put_line('media das notas neste mes eh  ' || m);  
+END; 
