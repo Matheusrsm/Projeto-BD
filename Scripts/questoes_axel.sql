@@ -1,6 +1,5 @@
 -- Questão 5
-SELECT c.* FROM CLIENTE c, AVALIACAO a WHERE (a.nota >= (SELECT AVG(nota) FROM AVALIACAO) AND a.cpf_cliente = c.cpf);
-
+SELECT DISTINCT c.* FROM CLIENTE c, AVALIACAO a WHERE (a.nota >= (SELECT AVG(nota) FROM AVALIACAO) AND a.cpf_cliente = c.cpf);
 
 -- Questão 6
 
