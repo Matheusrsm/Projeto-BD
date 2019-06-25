@@ -24,23 +24,30 @@ CREATE VIEW quartosDisponiveis AS (
 );
 
 -- Questão 4
-SELECT e.cpf FROM cliente e MINUS SELECT e.cpf FROM cliente e, hospeda h, venda v, produto p WHERE  v.data BETWEEN h.dia_check_in AND h.dia_check_out AND e.cpf = h.cpf_cliente AND h.numero_quarto = v.numero_quarto AND v.id_produto = p.id GROUP BY e.cpf HAVING SUM(p.valor * v.quantidade) > 100;
+SELECT e.cpf 
+FROM CLIENTE e MINUS
+    SELECT e.cpf 
+    FROM CLIENTE e, HOSPEDA h, VENDA v, PRODUTO p 
+    WHERE v.data BETWEEN h.dia_check_in AND h.dia_check_out AND e.cpf = h.cpf_cliente AND h.numero_quarto = v.numero_quarto AND v.id_produto = p.id 
+GROUP BY e.cpf 
+HAVING SUM(p.valor * v.quantidade) > 100;
 
 -- Questão 5
 SELECT DISTINCT c.* 
 FROM CLIENTE c, AVALIACAO a 
 WHERE (a.nota >= (
     SELECT AVG(nota) 
-    FROM AVALIACAO) 
-AND a.cpf_cliente = c.cpf);
+    FROM AVALIACAO
+) AND a.cpf_cliente = c.cpf);
 
 -- Questão 6
-SELECT c.cpf, c.email, c.nome, count(*) as Num_Dependente 
+SELECT c.cpf, c.email, c.nome, count(*) AS Num_Dependente 
 FROM CLIENTE c, DEPENDENTE d
 WHERE  c.cpf = d.cpf_cliente AND c.cpf IN (
     SELECT CPF_CLIENTE 
     FROM HOSPEDA 
-    WHERE DIA_CHECK_IN LIKE '%2018%'	OR DIA_CHECK_OUT LIKE '%2018%')
+    WHERE DIA_CHECK_IN LIKE '%2018%' OR DIA_CHECK_OUT LIKE '%2018%'
+)
 GROUP BY c.cpf, c.email, c.nome
 ORDER BY Num_Dependente;
 
@@ -51,59 +58,67 @@ WHERE NOT EXISTS (
     SELECT * 
     FROM DEPENDENTE d 
     WHERE c.cpf = d.cpf_cliente
-) and c.sexo = 'Feminino';
+) 
+AND c.sexo = 'Feminino';
 
 -- Questão 8
 SELECT tipo_manutencao
 FROM MANUTENCAO
 GROUP BY tipo_manutencao
-HAVING COUNT(*) >= all
-    ( 
+HAVING COUNT(*) >= ALL ( 
       SELECT COUNT(*)
       FROM MANUTENCAO
       GROUP BY tipo_manutencao  
-    );
+);
 
 -- Questão 9
 SELECT id, nome, valor, sum(v.quantidade * p.valor) AS total_vendas 
-FROM produto p, venda v 
+FROM PRODUTO p, VENDA v 
 WHERE p.id = v.id_produto
 GROUP BY id, nome, valor
 HAVING SUM(v.quantidade * p.valor) < 500;
 
 -- Questão 10
-SELECT DISTINCT funcao FROM funcionario WHERE nome LIKE '%João%' MINUS SELECT DISTINCT funcao FROM funcionario WHERE nome NOT LIKE '%João%';
+SELECT DISTINCT funcao 
+FROM FUNCIONARIO 
+WHERE nome LIKE '%João%' MINUS (
+    SELECT DISTINCT funcao 
+    FROM FUNCIONARIO 
+    WHERE nome NOT LIKE '%João%'
+);
 
 -- Questão 11
-CREATE VIEW quartosGastaramMais1000Frigobar AS 
-SELECT DISTINCT q.* 
-FROM QUARTO q 
-WHERE q.numero IN (
-    SELECT q.numero 
-    FROM QUARTO q, VENDA v, PRODUTO p 
-    WHERE p.id = v.id_produto AND q.numero = v.numero_quarto AND p.tipo = 'Frigobar'
-    GROUP BY q.numero
-    HAVING SUM(v.quantidade * p.valor) > 1000
+CREATE VIEW quartosGastaramMais1000Frigobar AS (
+    SELECT DISTINCT q.* 
+    FROM QUARTO q 
+    WHERE q.numero IN (
+        SELECT q.numero 
+        FROM QUARTO q, VENDA v, PRODUTO p 
+        WHERE p.id = v.id_produto AND q.numero = v.numero_quarto AND p.tipo = 'Frigobar'
+        GROUP BY q.numero
+        HAVING SUM(v.quantidade * p.valor) > 1000
+    )
 );
 
 -- Questão 12
-CREATE VIEW quartosMaisReservadosEm2018 AS 
+CREATE VIEW quartosMaisReservadosEm2018 AS (
     SELECT DISTINCT q.* 
-    FROM quarto q 
+    FROM QUARTO q 
     WHERE q.numero IN (
         SELECT numero_quarto
-        FROM Hospeda
+        FROM HOSPEDA
         GROUP BY numero_quarto
-        HAVING COUNT(*) >= all (
+        HAVING COUNT(*) >= ALL (
             SELECT COUNT(*)
             FROM Hospeda
-            WHERE dia_check_in LIKE '%2018%')  
+            WHERE dia_check_in LIKE '%2018%'
+        )  
     )
 );
 
 -- Questão 13
 ALTER TABLE QUARTO ADD CONSTRAINT check_quarto 
-    CHECK (REGEXP_LIKE (numero, '^[0-9]{3}-[A-Z]$'));
+CHECK (REGEXP_LIKE (numero, '^[0-9]{3}-[A-Z]$'));
 
 -- Questão 14
 CREATE OR REPLACE TRIGGER verificaPeriodoReserva
@@ -113,7 +128,7 @@ DECLARE
     v_quarto VARCHAR2(20);
 BEGIN
     SELECT numero_quarto INTO v_quarto
-    FROM Reserva
+    FROM RESERVA
     WHERE numero_quarto = :new.numero_quarto AND
           dia_check_in = :new.dia_check_in AND
           dia_check_out = :new.dia_check_out;
@@ -134,7 +149,7 @@ DECLARE
     v_cpf VARCHAR(14);
 BEGIN    
     SELECT cpf_cliente INTO v_cpf
-    FROM Reserva r
+    FROM RESERVA r
     WHERE r.cpf_cliente = :new.cpf_cliente AND
           r.numero_quarto = :new.numero_quarto ;    
     EXCEPTION
@@ -154,10 +169,10 @@ RETURN NUMBER IS
     dia_checkout DATE;
     diferenca NUMBER;
     BEGIN
-      select q.valor_diaria into diaria from reserva r, quarto q where r.numero_quarto = q.numero and cpf = r.cpf_cliente;
-      select r.DIA_CHECK_IN into dia_checkin from reserva r, quarto q where r.numero_quarto = q.numero and cpf = r.cpf_cliente;
-      select r.DIA_CHECK_OUT into dia_checkout from reserva r, quarto q where r.numero_quarto = q.numero and cpf = r.cpf_cliente;
-      select (dia_checkout - dia_checkin) into diferenca FROM DUAL;
+      SELECT q.valor_diaria INTO diaria FROM RESERVA r, QUARTO q WHERE r.numero_quarto = q.numero AND cpf = r.cpf_cliente;
+      SELECT r.DIA_CHECK_IN INTO dia_checkin FROM RESERVA r, QUARTO q WHERE r.numero_quarto = q.numero AND cpf = r.cpf_cliente;
+      SELECT r.DIA_CHECK_OUT INTO dia_checkout FROM RESERVA r, QUARTO q WHERE r.numero_quarto = q.numero AND cpf = r.cpf_cliente;
+      SELECT (dia_checkout - dia_checkin) INTO diferenca FROM DUAL;
      RETURN diferenca * diaria;
 END calculaOrcamentoReserva;
 /
