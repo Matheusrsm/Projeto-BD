@@ -1,5 +1,3 @@
--- Alunos: Axel Crispim, José Ivan, Joeberth Souza, Matheus Silva, Thaynnara Gonçalves
-
 -- Questão 1: Não Implementada
 
 -- Questão 2 
