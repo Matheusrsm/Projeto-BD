@@ -15,7 +15,34 @@ HAVING COUNT(*) >= all
 --Modifique a tabela QUARTO, adicionando uma restrição de integridade que valide se a coluna NUMERO está no formato “YYY-X”, onde X é qualquer caractere maiúsculo de A até Z e YYY são dígitos de 0 a 9.
 
 ALTER TABLE QUARTO ADD CONSTRAINT check_quarto 
-    CHECK (REGEXP_LIKE (numero, '^[0-9]{3}-[A-Z]$')); 
+    CHECK (REGEXP_LIKE (numero, '^[0-9]{3}-[A-Z]$'));
+
+-- Query 14
+-- Crie um trigger que impeça que um cliente faça uma reserva de um quarto no MESMO período de tempo que outra reserva.
+
+CREATE OR REPLACE TRIGGER verificaPeriodoReserva
+BEFORE INSERT ON RESERVA
+FOR EACH ROW
+DECLARE
+    v_quarto VARCHAR2(20);
+BEGIN
+
+    SELECT numero_quarto INTO v_quarto
+    FROM Reserva
+    WHERE numero_quarto = :new.numero_quarto AND
+          dia_check_in = :new.dia_check_in AND
+          dia_check_out = :new.dia_check_out;
+    
+    EXCEPTION
+    WHEN no_data_found THEN
+        v_quarto := NULL;
+    
+    IF (v_quarto IS NOT NULL) THEN
+        RAISE_APPLICATION_ERROR (-20202,'Ja existe uma reserva para esse quarto no mesmo periodo de tempo');
+    END IF;
+          
+END verificaPeriodoReserva;
+/ 
 
 -- Query 15
 -- Crie um trigger que não permita que um cliente se hospede sem reserva.
